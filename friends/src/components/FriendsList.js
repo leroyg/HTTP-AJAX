@@ -1,10 +1,10 @@
 import React from 'react';
-import Friend from "./Friend";
+import Friends from "./Friend";
 
 const FriendList = (props) => {
     return (
         <div>
-            {props.friend.map( x => <Friend key={x.id} friend={x}/> )}
+            {props.friends.map( x => <Friends key={x.id} friend={x}/> )}
         </div>
     );
 }

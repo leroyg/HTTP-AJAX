@@ -31,10 +31,11 @@ class App extends Component {
     render() {
         return (
         <div className="App">
-        <header className="App-header"></header>
         <h1>How many friends do you have? {this.state.friends.length} </h1>
         <FriendsList friends={this.state.friends} />
+        <AddFriendForm />
         </div>
+       
     );
     }
 
