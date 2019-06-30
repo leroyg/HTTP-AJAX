@@ -9,10 +9,9 @@ import AddFriend from './components/AddFriend';
 import UpdateFriend from './components/UpdateFriend';
 
 //Design Elements
-import 'materialize-css/dist/css/materialize.min.css'
 import './App.css';
 
-class App extends React.Component() {
+class App extends React.Component {
   constructor() {
       super();
 
