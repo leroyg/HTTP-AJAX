@@ -1,42 +1,43 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import axios from 'axios';
-import { Container } from 'react-materialize';
+
 
 //Components
 import FriendsList from './components/FriendsList';
-import AddFriend from './components/AddFriend';
-import UpdateFriend from './components/UpdateFriend';
+import AddFriendForm from './components/AddFriendForm';
 
 //Design Elements
 import './App.css';
 
-class App extends React.Component {
-  constructor() {
-      super();
-
-      this.state= {
-          friendsInfo: []
-      };
-  }
+class App extends Component {
+  state = { friends: [] };
+  
 
   componentDidMount() {
     axios
         .get("http://localhost:5000/friends")
-        .then(response => this.setState({ friendsInfo: response.data }))
+        .then(response => this.setState({ friends: response.data }))
         .catch(error => console.log(error));
-}
+    };
 
-render() {
-    return (
-    <div className="App">
-      <header className="App-header"></header>
-      <Container>
-          <FriendsList/>
-      </Container>
-    </div>
-  );
-}
+    deleteMessages =id => {
+        axios   
+            .delete(`http://localhost:5000/friends/${id}`)
+            .then(response => console.log(response))
+            .catch(error => console.log(error)); 
+    };
+
+
+    render() {
+        return (
+        <div className="App">
+        <header className="App-header"></header>
+        <h1>How many friends do you have? {this.state.friends.length} </h1>
+        <FriendsList friends={this.state.friends} />
+        </div>
+    );
+    }
+
 }
 
 export default App;
