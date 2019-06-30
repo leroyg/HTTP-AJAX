@@ -5,15 +5,23 @@ import axios from 'axios';
 
 
 class Friend extends React.Component {
+    
     render () {
         const { name, age, email, id } = this.props.friend;
+        const { id } = this.props.friend;
 
         return(
-            <Card>
-                <h2>This is From Friend</h2>
+            <Card className="friendCard">
+                <div className="friendHeaderDiv">
+                    <h2>{name}</h2>
+                </div>
+                <div>
+                    <p>Age: {age}</p>
+                    <p>Email: {email}</p>
+                </div>   
             </Card>
 
-        )
+        );
     }
 
 }
