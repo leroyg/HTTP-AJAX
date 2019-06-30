@@ -4,7 +4,7 @@ import { Card } from 'react-materialize';
 import axios from 'axios';
 
 
-class Friend extends React.Component {
+class Friend extends Component {
     deleteFriend = () => {
         const { id } = this.props.friend;
 

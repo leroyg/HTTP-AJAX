@@ -20,12 +20,12 @@ class App extends React.Component {
       };
   }
 
-//   CDU() {
-//     axios
-//     .get
-//     .them
-//     .catch
-// }
+  componentDidMount() {
+    axios
+        .get("http://localhost:5000/friends")
+        .then(response => this.setState({ friendsInfo: response.data }))
+        .catch(error => console.log(error));
+}
 
 render() {
     return (
